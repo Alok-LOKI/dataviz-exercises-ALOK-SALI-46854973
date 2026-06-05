@@ -1,0 +1,71 @@
+{
+  "name": "geo-countries",
+  "title": "Country Polygons as GeoJSON",
+  "version": "0.2.0",
+  "description": "geodata data package providing geojson polygons for all the world's countries",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/datasets/geo-countries.git"
+  },
+  "sources": [
+    {
+      "name": "Natural Earth",
+      "path": "http://www.naturalearthdata.com/downloads/10m-cultural-vectors/",
+      "title": "Natural Earth"
+    }
+  ],
+  "keywords": [
+    "geodata",
+    "vector",
+    "country"
+  ],
+  "licenses": [
+    {
+      "name": "ODC-PDDL-1.0",
+      "path": "http://opendatacommons.org/licenses/pddl/",
+      "title": "Open Data Commons Public Domain Dedication and License v1.0"
+    }
+  ],
+  "resources": [
+    {
+      "name": "countries",
+      "path": "data/countries.geojson",
+      "description": "GeoJSON FeatureCollection of 258 country (and territory) polygons. Features without an assigned ISO code carry the sentinel value \"-99\" for both ISO fields.",
+      "format": "geojson",
+      "mediatype": "application/json",
+      "schema": {
+        "fields": [
+          {
+            "name": "name",
+            "description": "Common name of the country or territory",
+            "type": "string"
+          },
+          {
+            "name": "ISO3166-1-Alpha-2",
+            "description": "2-letter ISO 3166-1 country code. Set to \"-99\" for features that have no assigned ISO code (e.g. disputed or unrecognised territories).",
+            "type": "string"
+          },
+          {
+            "name": "ISO3166-1-Alpha-3",
+            "description": "3-letter ISO 3166-1 country code. Set to \"-99\" for features that have no assigned ISO code (e.g. disputed or unrecognised territories).",
+            "type": "string"
+          }
+        ]
+      },
+      "foreignKeys": [
+        {
+          "fields": "ISO3166-1-Alpha-3",
+          "reference": {
+            "datapackage": "https://github.com/datasets/country-codes/",
+            "resource": "country-codes",
+            "fields": "ISO3166-1-Alpha-3"
+          }
+        }
+      ]
+    }
+  ],
+  "homepage": "http://github.com/datasets/geo-countries",
+  "collection": "geojson",
+  "has_premium": true,
+  "has_solutions": ["global-country-region-reference-data"]
+}
