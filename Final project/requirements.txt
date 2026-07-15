@@ -1,0 +1,7 @@
+pandas
+plotly
+nbformat
+jupyter
+streamlit
+kaleido
+python-pptx
